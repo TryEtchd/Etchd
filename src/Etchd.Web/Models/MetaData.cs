@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Etchd.Model
+namespace Etchd.Web.Models
 {
     public class MetaData
     {

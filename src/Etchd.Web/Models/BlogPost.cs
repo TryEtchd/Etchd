@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using Newtonsoft.Json;
 
-namespace Etchd.Model
+namespace Etchd.Web.Models
 {
     public class BlogPost : IComparer<BlogPost>, IComparable<BlogPost>
     {
@@ -20,7 +20,6 @@ namespace Etchd.Model
 
         public string Title { get; set; }
 
-        [JsonIgnore]
         public string Content { get; set; }
 
         public Author Author { get; set; } = new Author();

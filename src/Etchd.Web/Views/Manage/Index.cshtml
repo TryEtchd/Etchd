@@ -12,7 +12,7 @@
         <dt>Password:</dt>
         <dd>
             [
-            @if (Model.HasPassword)
+            @if(Model.HasPassword)
             {
                 <a asp-controller="Manage" asp-action="ChangePassword">Change</a>
             }

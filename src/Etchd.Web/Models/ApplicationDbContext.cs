@@ -1,10 +1,13 @@
-﻿using Microsoft.AspNet.Identity.EntityFramework;
+﻿using Etchd.Web.Models;
+using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Data.Entity;
 
 namespace Etchd.Web.Models
 {
-    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
+    public class ApplicationDbContext : IdentityDbContext<Author>
     {
+        public DbSet<BlogPost> BlogPosts { get; set; }
+
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);

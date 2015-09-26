@@ -4,7 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Etchd.Extensions;
-using Etchd.Model;
+using Etchd.Web.Models;
 
 namespace Etchd.Data
 {

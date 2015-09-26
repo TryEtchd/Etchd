@@ -1,4 +1,4 @@
-﻿namespace Etchd.Model
+﻿namespace Etchd.Web.Models
 {
     public class BlogSettings
     {

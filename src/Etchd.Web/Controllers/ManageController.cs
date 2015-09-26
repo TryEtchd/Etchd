@@ -13,14 +13,14 @@ namespace Etchd.Web.Controllers
     [Authorize]
     public class ManageController : Controller
     {
-        private readonly UserManager<ApplicationUser> _userManager;
-        private readonly SignInManager<ApplicationUser> _signInManager;
+        private readonly UserManager<Author> _userManager;
+        private readonly SignInManager<Author> _signInManager;
         private readonly IEmailSender _emailSender;
         private readonly ISmsSender _smsSender;
 
         public ManageController(
-            UserManager<ApplicationUser> userManager,
-            SignInManager<ApplicationUser> signInManager,
+            UserManager<Author> userManager,
+            SignInManager<Author> signInManager,
             IEmailSender emailSender,
             ISmsSender smsSender)
         {
@@ -349,7 +349,7 @@ namespace Etchd.Web.Controllers
             Error
         }
 
-        private async Task<ApplicationUser> GetCurrentUserAsync()
+        private async Task<Author> GetCurrentUserAsync()
         {
             return await _userManager.FindByIdAsync(Context.User.GetUserId());
         }

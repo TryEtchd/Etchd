@@ -26,7 +26,7 @@ namespace Etchd.Web
                 .AddJsonFile("config.json")
                 .AddJsonFile($"config.{env.EnvironmentName}.json", optional: true);
 
-            if (env.IsDevelopment())
+            if(env.IsDevelopment())
             {
                 // This reads the configuration keys from the secret store.
                 // For more details on using the user secret store see http://go.microsoft.com/fwlink/?LinkID=532709
@@ -48,7 +48,7 @@ namespace Etchd.Web
                     options.UseSqlServer(Configuration["Data:DefaultConnection:ConnectionString"]));
 
             // Add Identity services to the services container.
-            services.AddIdentity<ApplicationUser, IdentityRole>()
+            services.AddIdentity<Author, IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
 
@@ -74,7 +74,7 @@ namespace Etchd.Web
             // Configure the HTTP request pipeline.
 
             // Add the following to the request pipeline only in development environment.
-            if (env.IsDevelopment())
+            if(env.IsDevelopment())
             {
                 app.UseBrowserLink();
                 app.UseErrorPage();

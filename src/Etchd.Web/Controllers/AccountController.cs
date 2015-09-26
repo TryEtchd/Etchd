@@ -15,16 +15,16 @@ namespace Etchd.Web.Controllers
     [Authorize]
     public class AccountController : Controller
     {
-        private readonly UserManager<ApplicationUser> _userManager;
-        private readonly SignInManager<ApplicationUser> _signInManager;
+        private readonly UserManager<Author> _userManager;
+        private readonly SignInManager<Author> _signInManager;
         private readonly IEmailSender _emailSender;
         private readonly ISmsSender _smsSender;
         private readonly ApplicationDbContext _applicationDbContext;
         private static bool _databaseChecked;
 
         public AccountController(
-            UserManager<ApplicationUser> userManager,
-            SignInManager<ApplicationUser> signInManager,
+            UserManager<Author> userManager,
+            SignInManager<Author> signInManager,
             IEmailSender emailSender,
             ISmsSender smsSender,
             ApplicationDbContext applicationDbContext)
@@ -102,7 +102,7 @@ namespace Etchd.Web.Controllers
             EnsureDatabaseCreated(_applicationDbContext);
             if(ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                var user = new Author { UserName = model.Email, Email = model.Email };
                 var result = await _userManager.CreateAsync(user, model.Password);
                 if(result.Succeeded)
                 {
@@ -202,7 +202,7 @@ namespace Etchd.Web.Controllers
                 {
                     return View("ExternalLoginFailure");
                 }
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                var user = new Author { UserName = model.Email, Email = model.Email };
                 var result = await _userManager.CreateAsync(user);
                 if(result.Succeeded)
                 {
@@ -453,7 +453,7 @@ namespace Etchd.Web.Controllers
             }
         }
 
-        private async Task<ApplicationUser> GetCurrentUserAsync()
+        private async Task<Author> GetCurrentUserAsync()
         {
             return await _userManager.FindByIdAsync(Context.User.GetUserId());
         }
