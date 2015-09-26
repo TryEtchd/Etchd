@@ -1,0 +1,69 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{8453BA6E-66B5-4B8F-8E82-C92079A7D6B4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{D08564C9-F21C-4148-9DB7-6D13BA38B5F1}"
+	ProjectSection(SolutionItems) = preProject
+		global.json = global.json
+		NuGet.Config = NuGet.Config
+	EndProjectSection
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Etchd", "src\Etchd\Etchd.xproj", "{BF42589D-2882-4F6F-98FC-E138060D7D9B}"
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Etchd.UnitTests", "src\Etchd.UnitTests\Etchd.UnitTests.xproj", "{B9C4EEAF-1C2B-4440-AD66-BCE1EC6721C8}"
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Etchd.Web.UnitTests", "src\Etchd.Web.UnitTests\Etchd.Web.UnitTests.xproj", "{491084EE-D1BD-4801-A1CA-1D27A4775D0F}"
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Etchd.Web", "src\Etchd.Web\Etchd.Web.xproj", "{3DE50B2E-EF7B-4698-B87A-0985019CA7DD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PublishScripts", "PublishScripts", "{9DD70A84-59F7-4040-A28E-3C97DC6193CE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Scripts", "Scripts", "{61995838-AE77-4A23-B5A5-A31E4E978B2F}"
+	ProjectSection(SolutionItems) = preProject
+		PublishScripts\Scripts\Deploy-AzureResourceGroup.ps1 = PublishScripts\Scripts\Deploy-AzureResourceGroup.ps1
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Templates", "Templates", "{4E49B782-F17B-4C32-A60C-F64D3FA2AD2E}"
+	ProjectSection(SolutionItems) = preProject
+		PublishScripts\Templates\EtchdWeb.json = PublishScripts\Templates\EtchdWeb.json
+		PublishScripts\Templates\EtchdWeb.param.dev.json = PublishScripts\Templates\EtchdWeb.param.dev.json
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BF42589D-2882-4F6F-98FC-E138060D7D9B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF42589D-2882-4F6F-98FC-E138060D7D9B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF42589D-2882-4F6F-98FC-E138060D7D9B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF42589D-2882-4F6F-98FC-E138060D7D9B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B9C4EEAF-1C2B-4440-AD66-BCE1EC6721C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B9C4EEAF-1C2B-4440-AD66-BCE1EC6721C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B9C4EEAF-1C2B-4440-AD66-BCE1EC6721C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B9C4EEAF-1C2B-4440-AD66-BCE1EC6721C8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{491084EE-D1BD-4801-A1CA-1D27A4775D0F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{491084EE-D1BD-4801-A1CA-1D27A4775D0F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{491084EE-D1BD-4801-A1CA-1D27A4775D0F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{491084EE-D1BD-4801-A1CA-1D27A4775D0F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3DE50B2E-EF7B-4698-B87A-0985019CA7DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3DE50B2E-EF7B-4698-B87A-0985019CA7DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3DE50B2E-EF7B-4698-B87A-0985019CA7DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3DE50B2E-EF7B-4698-B87A-0985019CA7DD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{BF42589D-2882-4F6F-98FC-E138060D7D9B} = {8453BA6E-66B5-4B8F-8E82-C92079A7D6B4}
+		{B9C4EEAF-1C2B-4440-AD66-BCE1EC6721C8} = {8453BA6E-66B5-4B8F-8E82-C92079A7D6B4}
+		{491084EE-D1BD-4801-A1CA-1D27A4775D0F} = {8453BA6E-66B5-4B8F-8E82-C92079A7D6B4}
+		{3DE50B2E-EF7B-4698-B87A-0985019CA7DD} = {8453BA6E-66B5-4B8F-8E82-C92079A7D6B4}
+		{61995838-AE77-4A23-B5A5-A31E4E978B2F} = {9DD70A84-59F7-4040-A28E-3C97DC6193CE}
+		{4E49B782-F17B-4C32-A60C-F64D3FA2AD2E} = {9DD70A84-59F7-4040-A28E-3C97DC6193CE}
+	EndGlobalSection
+EndGlobal
