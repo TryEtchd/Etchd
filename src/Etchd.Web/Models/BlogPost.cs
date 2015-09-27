@@ -87,6 +87,18 @@ namespace Etchd.Web.Models
             return CommonMark.CommonMarkConverter.Convert(Content);
         }
 
+        public void SetPost(BlogPost otherPost)
+        {
+            this.Title = otherPost.Title;
+            this.Content = otherPost.Content;
+            this.PublishDate = otherPost.PublishDate;
+            this.UpdatedDate = otherPost.UpdatedDate;
+            this.Tags = otherPost.Tags;
+            this.MetaDataTitle = otherPost.MetaDataTitle;
+            this.MetaDataBody = otherPost.MetaDataBody;
+            this.url = otherPost.url;
+        }
+
         #region FutureFeatures
 
         public bool isStatic { get; set; }

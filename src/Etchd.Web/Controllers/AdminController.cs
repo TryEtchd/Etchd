@@ -31,7 +31,7 @@ namespace Etchd.Web.Controllers
             return View(posts);
         }
 
-        public async Task<IActionResult> EditPost(int? id)
+        public async Task<IActionResult> EditPost(int id = 0)
         {
             var post = db.BlogPosts.FirstOrDefault(a => a.id == id);
             if(post == null)
@@ -50,7 +50,7 @@ namespace Etchd.Web.Controllers
                 var existingPost = db.BlogPosts.FirstOrDefault(a => a.id == post.id);
                 if(existingPost != null)
                 {
-                    //TODO: Actually make updates work
+                    existingPost.SetPost(post);
                     await db.SaveChangesAsync();
                 }
             }
