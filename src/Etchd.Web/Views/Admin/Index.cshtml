@@ -1,0 +1,15 @@
+﻿@model IEnumerable<BlogPost>
+@{
+    Layout = "~/Views/Admin/_AdminLayout.cshtml";
+}
+
+<div class="row">
+    @foreach(var post in Model)
+    {
+        <div>
+
+            <a asp-action="EditPost" asp-controller="Admin" asp-route-id="@post.id"><span>@post.Title</span></a>
+        </div>
+
+    }
+</div>

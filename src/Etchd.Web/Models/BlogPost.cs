@@ -7,6 +7,15 @@ namespace Etchd.Web.Models
 {
     public class BlogPost : IComparer<BlogPost>, IComparable<BlogPost>
     {
+        public BlogPost()
+        {
+        }
+
+        public BlogPost(Author author)
+        {
+            this.Author = author;
+        }
+
         public BlogPost(MetaData data)
         {
             Author = data.Author;
@@ -18,17 +27,18 @@ namespace Etchd.Web.Models
         [Key]
         public int id { get; set; }
 
+        [StringLength(100, MinimumLength = 1)]
         public string Title { get; set; }
 
         public string Content { get; set; }
 
-        public Author Author { get; set; } = new Author();
+        public virtual Author Author { get; set; }
 
         public DateTime PublishDate { get; set; }
 
         public DateTime UpdatedDate { get; set; }
 
-        public virtual ICollection<string> Tags { get; set; } = new List<string>();
+        public virtual ICollection<string> Tags { get; set; }
 
         public string url { get; set; }
 

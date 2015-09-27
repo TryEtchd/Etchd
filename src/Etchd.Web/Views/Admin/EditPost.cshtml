@@ -1,0 +1,11 @@
+﻿@model BlogPost
+@{
+    Layout = "~/Views/Admin/_AdminLayout.cshtml";
+}
+
+<form asp-action="EditPost" asp-controller="AdminController">
+    Edit page for <input asp-for="Title" />
+    Edit body for <input asp-for="Content" />
+    Edit Image for <input asp-for="PostImage" />
+    <input type="submit" value="Submit">
+</form>
