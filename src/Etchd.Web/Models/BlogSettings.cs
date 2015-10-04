@@ -1,9 +1,11 @@
 ﻿namespace Etchd.Web.Models
 {
-    public class BlogSettings
+    public static class BlogSettings
     {
-        public string BlogName { get; set; }
+        public static string BlogName { get; set; }
 
-        public string BlogDescription { get; set; }
+        public static string BlogDescription { get; set; }
+
+        public static int NumberOfPosts { get; set; }
     }
 }

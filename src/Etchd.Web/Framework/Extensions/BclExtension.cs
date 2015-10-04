@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Etchd.Extensions
+namespace Etchd.Framework.Extensions
 {
     public static class BclExtension
     {
@@ -9,7 +9,7 @@ namespace Etchd.Extensions
         {
             foreach(T item in enumeration)
             {
-                action(item);
+                action?.Invoke(item);
             }
         }
     }
