@@ -4,23 +4,18 @@ using Microsoft.Data.Entity.Infrastructure;
 using Microsoft.Data.Entity.Metadata;
 using Microsoft.Data.Entity.Migrations;
 using Etchd.Web.Models;
-using Microsoft.Data.Entity.SqlServer.Metadata;
 
 namespace Etchd.Web.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
+    [Migration("20151024010422_init")]
     partial class init
     {
-        public override string Id
-        {
-            get { return "20150926215959_init"; }
-        }
-
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
-                .Annotation("ProductVersion", "7.0.0-beta7-15540")
-                .Annotation("SqlServer:ValueGenerationStrategy", SqlServerIdentityStrategy.IdentityColumn);
+                .Annotation("ProductVersion", "7.0.0-beta8-15964")
+                .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
             modelBuilder.Entity("Etchd.Web.Models.Author", b =>
                 {
@@ -29,7 +24,7 @@ namespace Etchd.Web.Migrations
                     b.Property<int>("AccessFailedCount");
 
                     b.Property<string>("ConcurrencyStamp")
-                        .ConcurrencyToken();
+                        .IsConcurrencyToken();
 
                     b.Property<string>("Email")
                         .Annotation("MaxLength", 256);
@@ -63,7 +58,7 @@ namespace Etchd.Web.Migrations
                     b.Property<string>("UserName")
                         .Annotation("MaxLength", 256);
 
-                    b.Key("Id");
+                    b.HasKey("Id");
 
                     b.Index("NormalizedEmail")
                         .Annotation("Relational:Name", "EmailIndex");
@@ -91,7 +86,8 @@ namespace Etchd.Web.Migrations
 
                     b.Property<DateTime>("PublishDate");
 
-                    b.Property<string>("Title");
+                    b.Property<string>("Title")
+                        .Annotation("MaxLength", 100);
 
                     b.Property<DateTime>("UpdatedDate");
 
@@ -101,7 +97,7 @@ namespace Etchd.Web.Migrations
 
                     b.Property<string>("url");
 
-                    b.Key("id");
+                    b.HasKey("id");
                 });
 
             modelBuilder.Entity("Microsoft.AspNet.Identity.EntityFramework.IdentityRole", b =>
@@ -109,7 +105,7 @@ namespace Etchd.Web.Migrations
                     b.Property<string>("Id");
 
                     b.Property<string>("ConcurrencyStamp")
-                        .ConcurrencyToken();
+                        .IsConcurrencyToken();
 
                     b.Property<string>("Name")
                         .Annotation("MaxLength", 256);
@@ -117,7 +113,7 @@ namespace Etchd.Web.Migrations
                     b.Property<string>("NormalizedName")
                         .Annotation("MaxLength", 256);
 
-                    b.Key("Id");
+                    b.HasKey("Id");
 
                     b.Index("NormalizedName")
                         .Annotation("Relational:Name", "RoleNameIndex");
@@ -136,7 +132,7 @@ namespace Etchd.Web.Migrations
 
                     b.Property<string>("RoleId");
 
-                    b.Key("Id");
+                    b.HasKey("Id");
 
                     b.Annotation("Relational:TableName", "AspNetRoleClaims");
                 });
@@ -152,7 +148,7 @@ namespace Etchd.Web.Migrations
 
                     b.Property<string>("UserId");
 
-                    b.Key("Id");
+                    b.HasKey("Id");
 
                     b.Annotation("Relational:TableName", "AspNetUserClaims");
                 });
@@ -167,7 +163,7 @@ namespace Etchd.Web.Migrations
 
                     b.Property<string>("UserId");
 
-                    b.Key("LoginProvider", "ProviderKey");
+                    b.HasKey("LoginProvider", "ProviderKey");
 
                     b.Annotation("Relational:TableName", "AspNetUserLogins");
                 });
@@ -178,47 +174,47 @@ namespace Etchd.Web.Migrations
 
                     b.Property<string>("RoleId");
 
-                    b.Key("UserId", "RoleId");
+                    b.HasKey("UserId", "RoleId");
 
                     b.Annotation("Relational:TableName", "AspNetUserRoles");
                 });
 
             modelBuilder.Entity("Etchd.Web.Models.BlogPost", b =>
                 {
-                    b.Reference("Etchd.Web.Models.Author")
-                        .InverseCollection()
+                    b.HasOne("Etchd.Web.Models.Author")
+                        .WithMany()
                         .ForeignKey("AuthorId");
                 });
 
             modelBuilder.Entity("Microsoft.AspNet.Identity.EntityFramework.IdentityRoleClaim<string>", b =>
                 {
-                    b.Reference("Microsoft.AspNet.Identity.EntityFramework.IdentityRole")
-                        .InverseCollection()
+                    b.HasOne("Microsoft.AspNet.Identity.EntityFramework.IdentityRole")
+                        .WithMany()
                         .ForeignKey("RoleId");
                 });
 
             modelBuilder.Entity("Microsoft.AspNet.Identity.EntityFramework.IdentityUserClaim<string>", b =>
                 {
-                    b.Reference("Etchd.Web.Models.Author")
-                        .InverseCollection()
+                    b.HasOne("Etchd.Web.Models.Author")
+                        .WithMany()
                         .ForeignKey("UserId");
                 });
 
             modelBuilder.Entity("Microsoft.AspNet.Identity.EntityFramework.IdentityUserLogin<string>", b =>
                 {
-                    b.Reference("Etchd.Web.Models.Author")
-                        .InverseCollection()
+                    b.HasOne("Etchd.Web.Models.Author")
+                        .WithMany()
                         .ForeignKey("UserId");
                 });
 
             modelBuilder.Entity("Microsoft.AspNet.Identity.EntityFramework.IdentityUserRole<string>", b =>
                 {
-                    b.Reference("Microsoft.AspNet.Identity.EntityFramework.IdentityRole")
-                        .InverseCollection()
+                    b.HasOne("Microsoft.AspNet.Identity.EntityFramework.IdentityRole")
+                        .WithMany()
                         .ForeignKey("RoleId");
 
-                    b.Reference("Etchd.Web.Models.Author")
-                        .InverseCollection()
+                    b.HasOne("Etchd.Web.Models.Author")
+                        .WithMany()
                         .ForeignKey("UserId");
                 });
         }

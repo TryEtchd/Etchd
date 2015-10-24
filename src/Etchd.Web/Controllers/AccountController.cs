@@ -455,7 +455,7 @@ namespace Etchd.Web.Controllers
 
         private async Task<Author> GetCurrentUserAsync()
         {
-            return await _userManager.FindByIdAsync(Context.User.GetUserId());
+            return await _userManager.FindByIdAsync(this.HttpContext.User.GetUserId());
         }
 
         private IActionResult RedirectToLocal(string returnUrl)

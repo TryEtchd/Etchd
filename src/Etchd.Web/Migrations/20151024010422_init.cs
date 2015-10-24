@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Microsoft.Data.Entity.Migrations;
-using Microsoft.Data.Entity.SqlServer.Metadata;
+using Microsoft.Data.Entity.Metadata;
 
 namespace Etchd.Web.Migrations
 {
@@ -13,23 +13,23 @@ namespace Etchd.Web.Migrations
                 name: "AspNetUsers",
                 columns: table => new
                 {
-                    Id = table.Column<string>(isNullable: false),
-                    AccessFailedCount = table.Column<int>(isNullable: false),
-                    ConcurrencyStamp = table.Column<string>(isNullable: true),
-                    Email = table.Column<string>(isNullable: true),
-                    EmailConfirmed = table.Column<bool>(isNullable: false),
-                    FirstName = table.Column<string>(isNullable: true),
-                    LastName = table.Column<string>(isNullable: true),
-                    LockoutEnabled = table.Column<bool>(isNullable: false),
-                    LockoutEnd = table.Column<DateTimeOffset>(isNullable: true),
-                    NormalizedEmail = table.Column<string>(isNullable: true),
-                    NormalizedUserName = table.Column<string>(isNullable: true),
-                    PasswordHash = table.Column<string>(isNullable: true),
-                    PhoneNumber = table.Column<string>(isNullable: true),
-                    PhoneNumberConfirmed = table.Column<bool>(isNullable: false),
-                    SecurityStamp = table.Column<string>(isNullable: true),
-                    TwoFactorEnabled = table.Column<bool>(isNullable: false),
-                    UserName = table.Column<string>(isNullable: true)
+                    Id = table.Column<string>(nullable: false),
+                    AccessFailedCount = table.Column<int>(nullable: false),
+                    ConcurrencyStamp = table.Column<string>(nullable: true),
+                    Email = table.Column<string>(nullable: true),
+                    EmailConfirmed = table.Column<bool>(nullable: false),
+                    FirstName = table.Column<string>(nullable: true),
+                    LastName = table.Column<string>(nullable: true),
+                    LockoutEnabled = table.Column<bool>(nullable: false),
+                    LockoutEnd = table.Column<DateTimeOffset>(nullable: true),
+                    NormalizedEmail = table.Column<string>(nullable: true),
+                    NormalizedUserName = table.Column<string>(nullable: true),
+                    PasswordHash = table.Column<string>(nullable: true),
+                    PhoneNumber = table.Column<string>(nullable: true),
+                    PhoneNumberConfirmed = table.Column<bool>(nullable: false),
+                    SecurityStamp = table.Column<string>(nullable: true),
+                    TwoFactorEnabled = table.Column<bool>(nullable: false),
+                    UserName = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -39,10 +39,10 @@ namespace Etchd.Web.Migrations
                 name: "AspNetRoles",
                 columns: table => new
                 {
-                    Id = table.Column<string>(isNullable: false),
-                    ConcurrencyStamp = table.Column<string>(isNullable: true),
-                    Name = table.Column<string>(isNullable: true),
-                    NormalizedName = table.Column<string>(isNullable: true)
+                    Id = table.Column<string>(nullable: false),
+                    ConcurrencyStamp = table.Column<string>(nullable: true),
+                    Name = table.Column<string>(nullable: true),
+                    NormalizedName = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -52,19 +52,19 @@ namespace Etchd.Web.Migrations
                 name: "BlogPost",
                 columns: table => new
                 {
-                    id = table.Column<int>(isNullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerIdentityStrategy.IdentityColumn),
-                    AuthorId = table.Column<string>(isNullable: true),
-                    Content = table.Column<string>(isNullable: true),
-                    MetaDataBody = table.Column<string>(isNullable: true),
-                    MetaDataTitle = table.Column<string>(isNullable: true),
-                    PostImage = table.Column<string>(isNullable: true),
-                    PublishDate = table.Column<DateTime>(isNullable: false),
-                    Title = table.Column<string>(isNullable: true),
-                    UpdatedDate = table.Column<DateTime>(isNullable: false),
-                    isFeatured = table.Column<bool>(isNullable: false),
-                    isStatic = table.Column<bool>(isNullable: false),
-                    url = table.Column<string>(isNullable: true)
+                    id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    AuthorId = table.Column<string>(nullable: true),
+                    Content = table.Column<string>(nullable: true),
+                    MetaDataBody = table.Column<string>(nullable: true),
+                    MetaDataTitle = table.Column<string>(nullable: true),
+                    PostImage = table.Column<string>(nullable: true),
+                    PublishDate = table.Column<DateTime>(nullable: false),
+                    Title = table.Column<string>(nullable: true),
+                    UpdatedDate = table.Column<DateTime>(nullable: false),
+                    isFeatured = table.Column<bool>(nullable: false),
+                    isStatic = table.Column<bool>(nullable: false),
+                    url = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -79,11 +79,11 @@ namespace Etchd.Web.Migrations
                 name: "AspNetUserClaims",
                 columns: table => new
                 {
-                    Id = table.Column<int>(isNullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerIdentityStrategy.IdentityColumn),
-                    ClaimType = table.Column<string>(isNullable: true),
-                    ClaimValue = table.Column<string>(isNullable: true),
-                    UserId = table.Column<string>(isNullable: true)
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    ClaimType = table.Column<string>(nullable: true),
+                    ClaimValue = table.Column<string>(nullable: true),
+                    UserId = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -98,10 +98,10 @@ namespace Etchd.Web.Migrations
                 name: "AspNetUserLogins",
                 columns: table => new
                 {
-                    LoginProvider = table.Column<string>(isNullable: false),
-                    ProviderKey = table.Column<string>(isNullable: false),
-                    ProviderDisplayName = table.Column<string>(isNullable: true),
-                    UserId = table.Column<string>(isNullable: true)
+                    LoginProvider = table.Column<string>(nullable: false),
+                    ProviderKey = table.Column<string>(nullable: false),
+                    ProviderDisplayName = table.Column<string>(nullable: true),
+                    UserId = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -116,11 +116,11 @@ namespace Etchd.Web.Migrations
                 name: "AspNetRoleClaims",
                 columns: table => new
                 {
-                    Id = table.Column<int>(isNullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerIdentityStrategy.IdentityColumn),
-                    ClaimType = table.Column<string>(isNullable: true),
-                    ClaimValue = table.Column<string>(isNullable: true),
-                    RoleId = table.Column<string>(isNullable: true)
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    ClaimType = table.Column<string>(nullable: true),
+                    ClaimValue = table.Column<string>(nullable: true),
+                    RoleId = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -135,8 +135,8 @@ namespace Etchd.Web.Migrations
                 name: "AspNetUserRoles",
                 columns: table => new
                 {
-                    UserId = table.Column<string>(isNullable: false),
-                    RoleId = table.Column<string>(isNullable: false)
+                    UserId = table.Column<string>(nullable: false),
+                    RoleId = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
                 {

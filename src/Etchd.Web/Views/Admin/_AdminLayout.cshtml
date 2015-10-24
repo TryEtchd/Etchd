@@ -4,6 +4,7 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
+    <link rel="stylesheet" asp-href-include="~/lib/bootstrap/dist/css/*.css" />
     <link rel="stylesheet" asp-href-include="~/css/Admin/AdminLayout.css" />
 </head>
 <body>
@@ -12,5 +13,7 @@
     <div class="container">
         @RenderBody()
     </div>
+    <script asp-src-include="~/lib/jquery/dist/jquery.min.js"></script>
+    <script asp-src-include="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
 </body>
 </html>

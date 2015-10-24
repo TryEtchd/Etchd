@@ -1,0 +1,9 @@
+﻿html {
+  color: Black; }
+
+.admin-nav {
+  position: relative;
+  -ms-flex: 0, 0, 235px;
+  -webkit-flex: 0, 0, 235px;
+  flex: 0, 0, 235px; }
+

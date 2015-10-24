@@ -37,7 +37,7 @@ namespace Etchd.Web.Controllers
 			var post = await db.BlogPosts.FirstOrDefaultAsync(a => a.id == id);
 			if(post == null)
 			{
-				post = new BlogPost { Author = db.Users.First(a => a.Id == Context.User.GetUserId()) };
+				post = new BlogPost { Author = db.Users.First(a => a.Id == HttpContext.User.GetUserId()) };
 			}
 			return View(post);
 		}
@@ -45,7 +45,7 @@ namespace Etchd.Web.Controllers
 		[HttpPost]
 		public async Task<IActionResult> EditPost(BlogPost post)
 		{
-			post.Author = await db.Users.FirstAsync(a => a.Id == Context.User.GetUserId());
+			post.Author = await db.Users.FirstAsync(a => a.Id == HttpContext.User.GetUserId());
 			if(post.id != 0)
 			{
 				var existingPost = db.BlogPosts.FirstOrDefault(a => a.id == post.id);
